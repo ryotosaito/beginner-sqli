@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSolvesTable extends Migration
+class CreateChallengeUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSolvesTable extends Migration
      */
     public function up()
     {
-        Schema::create('solves', function (Blueprint $table) {
+        Schema::create('challenge_user', function (Blueprint $table) {
             $table->unsignedInteger('challenge_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreateSolvesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('solves');
+        Schema::dropIfExists('challenge_user');
     }
 }

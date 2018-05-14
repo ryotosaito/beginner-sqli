@@ -12,4 +12,12 @@ class Challenge extends Model
     private function solvers() {
         return $this->belongsToMany('App\User');
     }
+
+    /**
+     * @param $user_id integer
+     * @return bool
+     */
+    public function is_solved_by($user_id) {
+        return $this->solvers()->where('id', '=', $user_id)->exists();
+    }
 }

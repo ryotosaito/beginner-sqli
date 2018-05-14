@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Challenge;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //
     }
 
     /**
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $tutorials = Challenge::query()->where('category', '=', 'tutorial')->get();
+        $challenges = Challenge::query()->where('category', '=', 'challenge')->get();
+        return view('home', ['tutorials' => $tutorials, 'challenges' => $challenges]);
     }
 }

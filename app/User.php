@@ -28,6 +28,6 @@ class User extends Authenticatable
     ];
 
     public function solves() {
-        return $this->hasMany('challenges');
+        return $this->belongsToMany('App\Challenge');
     }
 }

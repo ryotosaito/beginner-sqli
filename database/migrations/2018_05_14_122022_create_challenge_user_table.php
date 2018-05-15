@@ -20,6 +20,8 @@ class CreateChallengeUserTable extends Migration
 
             $table->foreign('challenge_id')->references('id')->on('challenges')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->unique(['challenge_id', 'user_id']);
         });
     }
 

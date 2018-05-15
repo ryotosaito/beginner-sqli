@@ -19,6 +19,8 @@ class CreateChallengesTable extends Migration
             $table->unsignedInteger('number');
             $table->string('title');
             $table->text('description');
+            $table->string('url');
+            $table->string('flag');
             $table->timestamps();
 
             $table->unique(['category', 'number'], 'unique_category_number');

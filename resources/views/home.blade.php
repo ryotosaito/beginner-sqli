@@ -15,7 +15,7 @@
                     <div class="row">
                         @foreach ($tutorials as $tutorial)
                             <div class="col-sm-3 mb-2">
-                                <a href="#" class="card text-center @if($tutorial->is_solved_by(Auth::id())) text-white bg-success @endif">
+                                <a href="{{ route('challenge', ['id' => $tutorial->id]) }}" class="card text-center @if($tutorial->is_solved_by(Auth::id())) text-white bg-success @endif">
                                     <div class="card-body">Stage {{ $tutorial->number }}</div>
                                 </a>
                             </div>
@@ -29,7 +29,7 @@
                     <div class="row">
                         @foreach ($challenges as $challenge)
                             <div class="col-sm-3 mb-2">
-                                <a href="#" class="card text-center @if($challenge->is_solved_by(Auth::id())) text-white bg-success @endif">
+                                <a href="{{ route('challenge', ['id' => $challenge->id]) }}" class="card text-center @if($challenge->is_solved_by(Auth::id())) text-white bg-success @endif">
                                     <div class="card-body">Stage {{ $challenge->number }}</div>
                                 </a>
                             </div>

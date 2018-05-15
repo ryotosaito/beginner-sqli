@@ -15,4 +15,6 @@ Auth::routes();
 
 Route::middleware('auth')->group(function (){
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/challenge/{id}', 'ChallengeController@show')->name('challenge');
+    Route::post('/challenge/{id}', 'ChallengeController@submit')->name('submit');
 });

@@ -15,7 +15,7 @@
                         <h3>{{ $challenge->title }}</h3>
                         <p>{{ $challenge->description }}</p>
                         @if ($challenge->url)
-                            <p><a href="{{ $challenge->url }}">{{ $challenge->url }}</a></p>
+                            <p><a href="{{ $challenge->url }}" target="_blank">{{ $challenge->url }}</a></p>
                         @endif
                         <form action="{{ route('submit', ['id' => $challenge->id]) }}" method="post">
                             {{ csrf_field() }}

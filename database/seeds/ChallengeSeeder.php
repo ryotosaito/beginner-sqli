@@ -49,5 +49,10 @@ class ChallengeSeeder extends Seeder
             'Chaotic string',
             'Someone broke the flag in pieces...',
             'very_super_hyper_ultra_extremely_insanely_long_flag');
+        static::seed_tutorial(
+            5,
+            'Injection Introduction',
+            'I\'m not about to buy fruits!',
+            'd0nt_f0rget_enctypt1ng_passw0rd');
     }
 }

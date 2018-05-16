@@ -59,5 +59,10 @@ class ChallengeSeeder extends Seeder
             'Guess the query',
             'Just a typical injection.',
             'sh0lder_h4ck1ng_1s_gu1lty');
+        static::seed_tutorial(
+            8,
+            'Reserved username',
+            'Oh, no. The ID \'admin\' was reserved...',
+            'I_h4v3_5een_th1s_Us3Rn4m3_mANy_Tim3s');
     }
 }

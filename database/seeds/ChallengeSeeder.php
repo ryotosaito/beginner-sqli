@@ -32,17 +32,17 @@ class ChallengeSeeder extends Seeder
         static::seed_tutorial(
             1,
             'A very beginning',
-            'Read database.',
+            'Read the database.',
             'not_only_sqli_but_base64');
         static::seed_tutorial(
             2,
             'm1z0r3 m1z0r3 m1z0r3',
-            'Read database again.',
+            'Read the database again.',
             'h3r3isth3r341f14g');
         static::seed_tutorial(
             3,
             'Where is my partner?',
-            'Make two tables into one view',
+            'Make two tables into one view.',
             'J4p4n3s3_wariin');
         static::seed_tutorial(
             4,

@@ -24,9 +24,13 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['password']))
 {
     $db = new SQLite3('db.sqlite');
     $res = $db->query("SELECT * FROM users WHERE username = '${_REQUEST['username']}' AND password = '${_REQUEST['password']}';");
-    if ($res->numColumns() > 0)
+    if ($res->fetchArray() !== false)
     {
         echo "<p>Welcome, ${_REQUEST['username']}!!<br>This is our page.</p><p>Flag: m1z0r3{sh0lder_h4ck1ng_1s_gu1lty}</p>";
+    }
+    else
+    {
+        echo "<p>Login failed.</p>";
     }
 } ?>
 </body>

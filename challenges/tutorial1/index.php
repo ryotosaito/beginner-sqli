@@ -11,7 +11,8 @@ require "../_util.php";
     <h1>A very beginning</h1>
     <p>Find the flag from 'flag' table.</p>
     <form action="index.php">
-        <input type="text" name="query" size="50" placeholder="query">
+        <input type="text" name="query" size="50" placeholder="query"
+               value="<?= (isset($_REQUEST['query']) && $_REQUEST['query'] !== '') ? $_REQUEST['query'] : '' ?>">
     </form>
     <?php
     if (isset($_REQUEST['query']))

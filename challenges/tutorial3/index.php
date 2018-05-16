@@ -11,7 +11,8 @@ require "../_util.php";
     <h1>Where is my partner?</h1>
     <p>You must combine tables with a proper 'join'.</p>
     <form action="index.php">
-        <input type="text" name="query" size="50" placeholder="query">
+        <input type="text" name="query" size="50" placeholder="query"
+               value="<?= (isset($_REQUEST['query']) && $_REQUEST['query'] !== '') ? $_REQUEST['query'] : '' ?>">
     </form>
     <?php
     $db = new SQLite3('db.sqlite');

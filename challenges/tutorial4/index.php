@@ -11,7 +11,8 @@ require "../_util.php";
     <h1>Chaotic string</h1>
     <p>Obtain the original flag from 'flag' table.</p>
     <form action="index.php">
-        <input type="text" name="query" size="50" placeholder="query">
+        <input type="text" name="query" size="50" placeholder="query"
+               value="<?= (isset($_REQUEST['query']) && $_REQUEST['query'] !== '') ? $_REQUEST['query'] : '' ?>">
     </form>
     <form action="index.php">
         <input type="text" name="remove_space" size="50" placeholder="hint: copy table and paste here.">

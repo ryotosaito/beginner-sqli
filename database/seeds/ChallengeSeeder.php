@@ -54,5 +54,10 @@ class ChallengeSeeder extends Seeder
             'Injection Introduction',
             'I\'m not about to buy fruits!',
             'd0nt_f0rget_enctypt1ng_passw0rd');
+        static::seed_tutorial(
+            6,
+            'Guess the query',
+            'Just a typical injection.',
+            'sh0lder_h4ck1ng_1s_gu1lty');
     }
 }

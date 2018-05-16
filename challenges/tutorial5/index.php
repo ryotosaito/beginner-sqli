@@ -29,10 +29,5 @@ $query_suff = "'";
         $db = new SQLite3('db.sqlite');
         echo query2table($db, $query_pref.$_REQUEST['query'].$query_suff);
     } ?>
-    <?php
-    if (isset($_REQUEST['remove_space']))
-    {
-        echo "<p>".str_replace(' ', '',$_REQUEST['remove_space'])."</p>";
-    } ?>
 </body>
 </html>

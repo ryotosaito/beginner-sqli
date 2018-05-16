@@ -44,5 +44,10 @@ class ChallengeSeeder extends Seeder
             'Where is my partner?',
             'Make two tables into one view',
             'J4p4n3s3_wariin');
+        static::seed_tutorial(
+            4,
+            'Chaotic string',
+            'Someone broke the flag in pieces...',
+            'very_super_hyper_ultra_extremely_insanely_long_flag');
     }
 }

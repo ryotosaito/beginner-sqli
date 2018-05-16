@@ -25,7 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $tutorials = Challenge::query()->where('category', '=', 'tutorial')->get();
-        $challenges = Challenge::query()->where('category', '=', 'challenge')->get();
-        return view('home', ['tutorials' => $tutorials, 'challenges' => $challenges]);
+        return view('home', ['tutorials' => $tutorials]);
     }
 }

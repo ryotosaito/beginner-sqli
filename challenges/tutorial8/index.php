@@ -17,7 +17,7 @@ require "../_util.php";
     <button type="submit">search</button>
 </form>
 <?php
-if (isset($_REQUEST['username']))
+if (isset($_REQUEST['username']) && $_REQUEST['username'] !== '')
 {
     $db = new SQLite3('db.sqlite');
     $res = $db->query("SELECT * FROM users WHERE username = '${_REQUEST['username']}';");

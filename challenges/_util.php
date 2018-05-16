@@ -6,6 +6,10 @@
  */
 function query2table(SQLite3 $db, $query)
 {
+    if ($query === '')
+    {
+        return "";
+    }
     $table = "<table border='1'><thead><tr>";
     $res = $db->query($query);
     for ($i=0;$i<$res->numColumns();$i++)

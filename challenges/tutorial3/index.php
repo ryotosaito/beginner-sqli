@@ -15,7 +15,7 @@ require "../_util.php";
     </form>
     <?php
     $db = new SQLite3('db.sqlite');
-    if (isset($_REQUEST['query']))
+    if (isset($_REQUEST['query']) && $_REQUEST['query'] !== '')
     {
         echo query2table($db, $_REQUEST['query']);
     }

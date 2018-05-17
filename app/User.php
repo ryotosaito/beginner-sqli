@@ -28,6 +28,6 @@ class User extends Authenticatable
     ];
 
     public function solves() {
-        return $this->belongsToMany('App\Challenge');
+        return $this->belongsToMany('App\Challenge')->withTimestamps();
     }
 }

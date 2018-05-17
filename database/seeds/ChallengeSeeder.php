@@ -60,6 +60,11 @@ class ChallengeSeeder extends Seeder
             'Just a typical injection.',
             'sh0lder_h4ck1ng_1s_gu1lty');
         static::seed_tutorial(
+            7,
+            'Who is the liar?',
+            'Scheme Scheme Scheme',
+            'default_table_is_sys_not_system');
+        static::seed_tutorial(
             8,
             'Reserved username',
             'Oh, no. The ID \'admin\' was reserved...',

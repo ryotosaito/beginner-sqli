@@ -104,7 +104,7 @@ composer install
 ### Install submission DB migration and initialize
 ```sh
 php artisan migrate
-php artisan seed --class=ChallengeSeeder
+php artisan db:seed --class=ChallengeSeeder
 ```
 
 ### Generate Laravel app key

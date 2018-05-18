@@ -14,7 +14,7 @@ This repository consists of [Laravel](https://laravel.com/), a php framework.
   - Ctype PHP Extension
   - JSON PHP Extension
 - PHP Composer
-- FPM PHP Extension 
+- FPM PHP Extension
 - MySQL Server
 - Nginx
 
@@ -24,7 +24,7 @@ This repository consists of [Laravel](https://laravel.com/), a php framework.
 Edit my.cnf.
 
 ```sh
-sudo cat << EOF > /etc/my.cnf
+cat << EOF > /etc/my.cnf
 [mysqld@7.sqli]
 datadir=/var/lib/mysqld/mysql.7.sqli
 socket=/var/lib/mysqld/mysql.7.sqli/mysql.sock
@@ -116,23 +116,23 @@ php artisan key:generate
 #### Problem server
 Example /etc/nginx/nginx.conf
 ```nginx
-server {                                                                                                                                                                        
-        listen 80;                                                                                                                                                              
-        server_name your.problem.server.url;                                                                                                                                   
-        location / {                                                                                                                                                            
-                root /path/to/beginner-sqli/challenges;                                                                                                            
-                index index.php;                                                                                                                                                
-        }                                                                                                                                                                       
-        location ~ \.php$ {                                                                                                                                                     
-                root /path/to/beginner-sqli/challenges;                                                                                                            
-                fastcgi_pass   127.0.0.1:9000;                                                                                                                                  
-                fastcgi_index  index.php;                                                                                                                                       
-                fastcgi_param  SCRIPT_FILENAME  /path/to/beginner-sqli/challenges/$fastcgi_script_name;                                                            
-                include        fastcgi_params;                                                                                                                                  
-        }                                               
+server {
+        listen 80;
+        server_name your.problem.server.url;
+        location / {
+                root /path/to/beginner-sqli/challenges;
+                index index.php;
+        }
+        location ~ \.php$ {
+                root /path/to/beginner-sqli/challenges;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+                fastcgi_param  SCRIPT_FILENAME  /path/to/beginner-sqli/challenges/$fastcgi_script_name;
+                include        fastcgi_params;
+        }
         location ~ \.sqlite$ {
                 deny all;
-        }                                                                                                                        
+        }
 }
 ```
 

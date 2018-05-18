@@ -1,4 +1,8 @@
 <?php
+require '../../vendor/autoload.php';
+$dotenv = new Dotenv\Dotenv(__DIR__.'/../..');
+$dotenv->load();
+$db = new PDO(getenv('CHALLENGE7_DSN'), getenv('CHALLENGE7_USERNAME'), getenv('CHALLENGE7_PASSWORD'));
 $query = "SELECT * FROM members LEFT JOIN groups ON members.group_id = groups.id;";
 if (isset($_REQUEST['query']) && $_REQUEST['query'] !== '')
 {

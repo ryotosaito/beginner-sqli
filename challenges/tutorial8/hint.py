@@ -1,7 +1,7 @@
 import requests
 
 def main():
-    url = "http://challenges.ctf.localhost/tutorial8/index.php?username="
+    url = "http://challenge.beginner-sqli.m1z0r3.ctf.ryotosaito.com/tutorial8/index.php?username="
     flag = ""
 
     # Length prediction

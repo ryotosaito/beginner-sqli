@@ -1,0 +1,64 @@
+version: '2'
+services:
+
+  # The Application
+  app:
+    build:
+      context: ./
+      dockerfile: app.dockerfile
+    working_dir: /var/www
+    user: www-data
+    volumes:
+      - ./:/var/www
+    environment:
+      - "DB_HOST=database"
+      - "DB_DATABASE=homestead"
+      - "DB_USERNAME=homestead"
+      - "DB_PASSWORD=secret"
+      - "DB7_HOST=database7"
+      - "DB7_DATABASE=homestead"
+      - "DB7_USERNAME=homestead"
+      - "DB7_PASSWORD=secret"
+      - "DB7_ROOT_PASSWORD=secret"
+    depends_on:
+      - database
+      - database7
+
+  # The Web Server
+  web:
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+    working_dir: /var/www
+    volumes_from:
+      - app
+    ports:
+      - 5000:80
+      - 5001:8080
+
+  # Database for score server
+  database:
+    image: mysql:5.6
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=homestead"
+      - "MYSQL_USER=homestead"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_ROOT_PASSWORD=secret"
+
+  # Database for tutorial7
+  database7:
+    image: mysql:5.6
+    volumes:
+      - dbdata7:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    environment:
+      - "MYSQL_DATABASE=homestead"
+      - "MYSQL_USER=homestead"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_ROOT_PASSWORD=secret"
+
+volumes:
+  dbdata:
+  dbdata7:

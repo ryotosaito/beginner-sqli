@@ -16,6 +16,7 @@ services:
       - "DB7_HOST=database7"
     depends_on:
       - database
+    restart: unless-stopped
 
   # Challenge Server
   challenges:
@@ -31,6 +32,7 @@ services:
       - "DB7_PASSWORD=${DB7_PASSWORD}"
     depends_on:
       - database7
+    restart: unless-stopped
 
   # The Web Server
   web:
@@ -42,10 +44,10 @@ services:
     depends_on:
       - score_server
       - challenges
-
     ports:
       - ${APP_PORT}:80
       - ${CHALLENGE_PORT}:8080
+    restart: unless-stopped
 
   # Database for score server
   database:
@@ -57,6 +59,7 @@ services:
       - "MYSQL_USER=${DB_USERNAME}"
       - "MYSQL_PASSWORD=${DB_PASSWORD}"
       - "MYSQL_RANDOM_ROOT_PASSWORD=yes"
+    restart: unless-stopped
 
   # Database for tutorial7
   database7:
@@ -66,6 +69,7 @@ services:
       - "MYSQL_USER=${DB7_USERNAME}"
       - "MYSQL_PASSWORD=${DB7_PASSWORD}"
       - "MYSQL_RANDOM_ROOT_PASSWORD=yes"
+    restart: unless-stopped
 
 volumes:
   score_server_volume:

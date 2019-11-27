@@ -10,7 +10,6 @@ This repository consists of [Laravel](https://laravel.com/), a php framework.
 - Nginx (for reverse proxy, optional)
 
 ### Deployment
-## Docker
 ```bash
 cp .env.example .env
 # edit .env

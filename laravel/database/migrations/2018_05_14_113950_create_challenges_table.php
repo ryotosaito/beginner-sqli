@@ -19,7 +19,6 @@ class CreateChallengesTable extends Migration
             $table->unsignedInteger('number');
             $table->string('title');
             $table->text('description');
-            $table->string('url');
             $table->string('flag');
             $table->timestamps();
 

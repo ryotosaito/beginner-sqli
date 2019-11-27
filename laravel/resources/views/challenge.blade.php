@@ -14,9 +14,7 @@
                     <div class="card-body">
                         <h3>{{ $challenge->title }}</h3>
                         <p>{{ $challenge->description }}</p>
-                        @if ($challenge->url)
-                            <p><a href="{{ $challenge->url }}" target="_blank">{{ $challenge->url }}</a></p>
-                        @endif
+                        <p><a href="{{ $challenge->url() }}" target="_blank">{{ $challenge->url() }}</a></p>
                         <form action="{{ route('submit', ['id' => $challenge->id]) }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">

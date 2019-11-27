@@ -1,8 +1,5 @@
 <?php
-require '../../vendor/autoload.php';
-$dotenv = new Dotenv\Dotenv(__DIR__.'/../..');
-$dotenv->load();
-$db = new PDO(getenv('CHALLENGE7_DSN'), getenv('CHALLENGE7_USERNAME'), getenv('CHALLENGE7_PASSWORD'));
+$db = new PDO('mysql:host='.getenv('DB7_HOST').';port='.getenv('DB7_PORT', 3306).';dbname='.getenv('DB7_DATABASE').';', getenv('DB7_USERNAME'), getenv('DB7_PASSWORD'));
 $query = "SELECT * FROM members LEFT JOIN groups ON members.group_id = groups.id;";
 if (isset($_REQUEST['query']) && $_REQUEST['query'] !== '')
 {
@@ -27,22 +24,27 @@ if (isset($_REQUEST['query']) && $_REQUEST['query'] !== '')
 </form>
 <?php
 $res = $db->query($query);
-$table = "<table border='1'><thead><tr>";
-for($i=0;$i<$res->columnCount();$i++)
+$table = "<table border='1'>";
+if (!empty($res))
 {
-    $table .= "<th>".$res->getColumnMeta($i)["name"]."</th>";
-}
-$table .= "</tr></thead><tbody>";
-while ($row = $res->fetch())
-{
-    $table .= "<tr>";
-    for ($i=0;$i<$res->columnCount();$i++)
+    $table .= "<thead><tr>";
+    for($i=0;$i<$res->columnCount();$i++)
     {
-        $table .= "<td>{$row[$i]}</td>";
+        $table .= "<th>".$res->getColumnMeta($i)["name"]."</th>";
     }
-    $table .= "</tr>";
+    $table .= "</tr></thead><tbody>";
+    while ($row = $res->fetch())
+    {
+        $table .= "<tr>";
+        for ($i=0;$i<$res->columnCount();$i++)
+        {
+            $table .= "<td>{$row[$i]}</td>";
+        }
+        $table .= "</tr>";
+    }
+    $table .= "</tbody>";
 }
-$table .= "</tbody></table>";
+$table .= "</table>";
 echo $table;
 ?>
 </body>

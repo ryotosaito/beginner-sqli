@@ -17,7 +17,6 @@ class ChallengeSeeder extends Seeder
             'number' => $number,
             'title' => $title,
             'description' => $description,
-            'url' => env('CHALLENGE_URL')."/tutorial{$number}/",
             'flag' => "m1z0r3{{$flag}}",
         ]);
     }

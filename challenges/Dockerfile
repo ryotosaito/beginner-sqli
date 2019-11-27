@@ -9,3 +9,5 @@ RUN mkdir -p /var/www/beginner-sqli
 COPY . /var/www/challenges/
 WORKDIR /var/www/challenges
 VOLUME /var/www/challenges
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*

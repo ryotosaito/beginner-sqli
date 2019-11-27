@@ -3,7 +3,25 @@ SQL injection hands-on for CTF beginners: http://beginner-sqli.m1z0r3.ctf.ryotos
 
 This repository consists of [Laravel](https://laravel.com/), a php framework.
 
-## Requirements
+## Deployment with Docker
+### Requirements
+- Docker
+- docker-compose
+- Nginx (for reverse proxy, optional)
+
+### Deployment
+## Docker
+```bash
+cp .env.example .env
+# edit .env
+docker-compose build
+docker-compose run score_server php artisan key:generate
+# copy application key (between braces) to APP_KEY in .env
+docker-compose up
+```
+
+## Deployment without Docker
+### Requirements
 - [Laravel 5.6 Requirements](https://laravel.com/docs/5.6#server-requirements)
   - PHP >= 7.1.3
   - OpenSSL PHP Extension
@@ -18,9 +36,9 @@ This repository consists of [Laravel](https://laravel.com/), a php framework.
 - MySQL Server
 - Nginx
 
-## Deployment
+### Deployment
 
-### Prepare MySQL instance for tutorial7
+#### Prepare MySQL instance for tutorial7
 Edit my.cnf.
 
 ```sh
@@ -54,14 +72,14 @@ systemctl start mysqld
 systemctl enable mysqld
 ```
 
-### Clone repository
+#### Clone repository
 ```sh
 # cd to installation directory
 git clone https://github.com/ryotosaito/beginner-sqli.git
 cd beginner-sqli
 ```
 
-### Edit .env
+#### Edit .env
 ```sh
 cp .env.example .env
 ```
@@ -101,19 +119,19 @@ DB_PASSWORD=your_db_password
 composer install
 ```
 
-### Install submission DB migration and initialize
+#### Install submission DB migration and initialize
 ```sh
 php artisan migrate
 php artisan db:seed --class=ChallengeSeeder
 ```
 
-### Generate Laravel app key
+#### Generate Laravel app key
 ```sh
 php artisan key:generate
 ```
 
-### Configure Nginx
-#### Problem server
+#### Configure Nginx
+##### Problem server
 Example /etc/nginx/nginx.conf
 ```nginx
 server {
@@ -136,10 +154,10 @@ server {
 }
 ```
 
-#### Submission server
+##### Submission server
 See https://laravel.com/docs/5.6/deployment#server-configuration
 
-### Run server
+#### Run server
 ```
 php-fpm
 nginx # or nginx -s reload

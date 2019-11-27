@@ -20,4 +20,11 @@ class Challenge extends Model
     public function is_solved_by($user_id) {
         return $this->solvers()->where('id', '=', $user_id)->exists();
     }
+
+    /**
+     * @return String
+     */
+    public function url() {
+        return env('CHALLENGE_URL').'/tutorial'.$this->id.'/';
+    }
 }

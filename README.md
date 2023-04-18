@@ -14,8 +14,7 @@ This repository consists of [Laravel](https://laravel.com/), a php framework.
 cp .env.example .env
 # edit .env
 docker-compose build
-docker-compose run score_server php artisan key:generate
-# copy application key (between braces) to APP_KEY in .env
+docker-compose run -v $PWD/.env:/var/www/beginner-sqli/.env score_server php artisan key:generate
 docker-compose up
 ```
 

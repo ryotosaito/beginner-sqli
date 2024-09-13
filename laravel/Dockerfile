@@ -1,4 +1,4 @@
-FROM php:7.3.12-fpm-stretch as builder
+FROM php:8.2-fpm-bullseye AS builder
 
 RUN apt-get update && \
     apt-get -y install libzip-dev unzip && \
@@ -10,11 +10,11 @@ RUN chown -R www-data .
 USER www-data
 RUN composer install
 
-FROM php:7.3.12-fpm-stretch
+FROM php:8.2-fpm-bullseye
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-       mysql-client \
+       default-mysql-client \
        libmagickwand-dev \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
